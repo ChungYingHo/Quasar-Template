@@ -1,16 +1,62 @@
 {
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.codeActionsOnSave": [
-    "source.fixAll.eslint"
+  "[vue]": {
+    "editor.tabSize": 2, // 2 個空格
+    "editor.formatOnPaste": false, // 貼上時不自動格式化
+    "editor.formatOnSave": true, // 儲存時自動格式化
+    "editor.detectIndentation": false // 自動偵測縮排
+  },
+  "[graphql]": {
+    "editor.tabSize": 2 // 2 個空格
+  },
+  "[javascript]": {
+    "editor.tabSize": 2, // 2 個空格
+    "editor.formatOnPaste": false, // 貼上時不自動格式化
+    "editor.formatOnSave": true // 儲存時自動格式化
+  },
+  "[typescript]": {
+    "editor.tabSize": 2, // 2 個空格
+    "editor.formatOnPaste": false, // 貼上時不自動格式化
+    "editor.formatOnSave": true // 儲存時自動格式化
+  },
+  "[scss]": {
+    "editor.tabSize": 2, // 2 個空格
+    "editor.formatOnSave": true // 儲存時自動格式化
+  },
+  "[json]": {
+    "editor.tabSize": 4 // 4 個空格
+  },
+  "scssFormatter.singleQuote": true, // 使用單引號
+  "eslint.workingDirectories": [
+    "./frontend"
   ],
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "vue"
+  "html.format.wrapAttributes": "force-expand-multiline", // 強制展開多行
+  "html.format.wrapLineLength": 120, // 超過 120 個字元換行
+  "files.insertFinalNewline": true, // 結尾換行
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true, // 函式名稱與括號間加空格
+  "javascript.format.insertSpaceAfterConstructor": true, // new 後加空格
+  "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false, // 控制結構不換行
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": false, // 函式不換行
+  "editor.semanticTokenColorCustomizations": { // 語意色彩
+    "enabled": true,
+    "rules": {
+      "property.refValue": {
+        "underline": true
+      }
+    }
+  },
+  "cSpell.words": [
+    "fontawesome",
+    "intlify",
+    "ionicons",
+    "myapp",
+    "roboto",
+    "ruleset",
+    "themify"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "scss.format.spaceAroundSelectorSeparator": true,
+  "[javascript][typescript][vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  }
 }
