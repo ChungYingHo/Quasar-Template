@@ -15,7 +15,8 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
+    'vue/setup-compiler-macros': true
   },
 
   // Rules order is important, please avoid shuffling them
@@ -35,7 +36,7 @@ module.exports = {
     // 'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
 
     'standard'
-    
+
   ],
 
   plugins: [
@@ -45,7 +46,7 @@ module.exports = {
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-files
     // required to lint *.vue files
     'vue'
-    
+
   ],
 
   globals: {
@@ -63,7 +64,12 @@ module.exports = {
 
   // add your custom rules here
   rules: {
-    
+
+    // typescript-eslint rules
+    'no-undef': 'off',
+    'no-redeclare': 'off',
+    'no-console': 'off',
+
     // allow async-await
     'generator-star-spacing': 'off',
     // allow paren-less arrow functions
@@ -83,7 +89,7 @@ module.exports = {
     // The core 'import/named' rules
     // does not work with type definitions
     'import/named': 'off',
-    
+
     'prefer-promise-reject-errors': 'off',
 
     quotes: ['warn', 'single', { avoidEscape: true }],
@@ -93,12 +99,54 @@ module.exports = {
 
     // in plain CommonJS modules, you can't use `import foo = require('foo')` to pass this rule, so it has to be disabled
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
 
     // The core 'no-unused-vars' rules (in the eslint:recommended ruleset)
     // does not work with type definitions
     'no-unused-vars': 'off',
 
     // allow debugger during development only
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    // vue rules
+    'vue/comma-spacing': 'error', // 逗號前後的空格
+    'vue/key-spacing': 'error', // 冒號前後的空格
+    'vue/mustache-interpolation-spacing': ['error', 'always'], // {{ }} 內的空格
+    'vue/no-multi-spaces': 'error', // 多餘空格報錯
+    'vue/multiline-html-element-content-newline': 'error', // 多行 html 元素的內容應該換行
+    'vue/attribute-hyphenation': ['error', 'always'], // 屬性名應該使用連字符
+    'vue/attributes-order': ['error', {
+      order: [
+        'DEFINITION', // is, v-is
+        'LIST_RENDERING', // v-for
+        'CONDITIONALS', // v-if v-else-if v-else v-show v-cloak
+        'RENDER_MODIFIERS', // v-once v-pre
+        'TWO_WAY_BINDING', // v-model
+        'OTHER_DIRECTIVES', // v-custom-directive
+        'SLOT', // v-slot
+        'GLOBAL', // id
+        'UNIQUE', // key, ref
+        'ATTR_SHORTHAND_BOOL', // boolean-prop
+        'ATTR_STATIC', // prop=""
+        'ATTR_DYNAMIC', // :prop=""
+        'EVENTS', // v-on, @
+        'CONTENT' // v-text, v-html
+      ],
+      alphabetical: false // 不需要按字母排序
+    }],
+
+    'import/order': ['warn', {
+      alphabetize: {
+        order: 'asc',
+        caseInsensitive: true
+      },
+      groups: [
+        'index',
+        'builtin', // node.js 的 module，ex: fs, path
+        'external', // 外部 module，ex: lodash
+        'internal', // 內部 module，ex: src, @
+        ['sibling', 'parent'] // 同目錄、上層目錄
+      ]
+    }]
   }
 }
