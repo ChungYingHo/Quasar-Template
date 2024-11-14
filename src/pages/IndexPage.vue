@@ -1,8 +1,8 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <example-component
-      title="Example component"
       active
+      title="Example component"
       :todos="todos"
       :meta="meta"
     ></example-component>
@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Todo, Meta } from 'components/models'
 import ExampleComponent from 'components/ExampleComponent.vue'
+import { Todo, Meta } from 'components/models'
+import { ref } from 'vue'
 
 defineOptions({
   name: 'IndexPage'

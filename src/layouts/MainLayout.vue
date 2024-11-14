@@ -46,8 +46,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue'
+import { ref } from 'vue'
 
 defineOptions({
   name: 'MainLayout'
