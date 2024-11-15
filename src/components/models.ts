@@ -1,8 +1,16 @@
-export interface Todo {
+export interface User {
   id: number;
-  content: string;
+  firstName: string;
+  lastName: string
+  age: number
+  gender: string
+  actions?: string
 }
 
-export interface Meta {
-  totalCount: number;
+export interface ApiParams {
+  search?: string | unknown
+  limit?: number
+  skip?: number
+  sortBy?: string
+  order?: boolean
 }
