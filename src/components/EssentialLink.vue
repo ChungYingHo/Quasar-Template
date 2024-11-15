@@ -2,8 +2,8 @@
   <q-item
     clickable
     tag="a"
-    target="_blank"
     :href="link"
+    :active="currentRoute.path === link"
   >
     <q-item-section
       v-if="icon"
@@ -20,9 +20,13 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
+
 defineOptions({
   name: 'EssentialLink'
 })
+
+const currentRoute = useRoute()
 
 export interface EssentialLinkProps {
   title: string;
