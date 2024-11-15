@@ -56,6 +56,12 @@ const linksList: EssentialLinkProps[] = [
     caption: 'server-side pagination with axios',
     icon: 'table_view',
     link: '/'
+  },
+  {
+    title: 'HandsonTable',
+    caption: 'CRUD and default demo',
+    icon: 'table_chart',
+    link: '/demo-handsontable'
   }
 ]
 

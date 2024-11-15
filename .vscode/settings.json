@@ -45,7 +45,10 @@
     }
   },
   "cSpell.words": [
+    "axios",
+    "composables",
     "fontawesome",
+    "handsontable",
     "intlify",
     "ionicons",
     "myapp",
