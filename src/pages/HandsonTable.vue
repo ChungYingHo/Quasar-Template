@@ -1,7 +1,7 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <q-btn @click="switchComponent">Switch to {{ componentName }}</q-btn>
-    <component :is="componentName === 'Default demo' ? HandsonTableCrudComponent : HandsonTableComponent" />
+    <q-btn @click="switchComponent">Switch to {{ switchComponentName }}</q-btn>
+    <component :is="switchComponentName === 'Filter & Export' ? HandsonTableCrudComponent : HandsonTableComponent" />
   </q-page>
 </template>
 
@@ -10,13 +10,13 @@ import HandsonTableComponent from 'src/components/handsontable/HandsonTableCompo
 import HandsonTableCrudComponent from 'src/components/handsontable/HandsonTableCrudComponent.vue'
 import { ref } from 'vue'
 
-const componentName = ref('Default demo')
+const switchComponentName = ref('Filter & Export')
 
 const switchComponent = () => {
-  if (componentName.value === 'Default demo') {
-    componentName.value = 'CRUD demo'
+  if (switchComponentName.value === 'Filter & Export') {
+    switchComponentName.value = 'CRUD'
   } else {
-    componentName.value = 'Default demo'
+    switchComponentName.value = 'Filter & Export'
   }
 }
 </script>
