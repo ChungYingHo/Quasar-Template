@@ -38,13 +38,6 @@
       :dropdown-menu="dropdownMenu"
       :settings="hotTableOptions"
     />
-    <q-btn
-      color="warning"
-      class="q-mt-sm row"
-      @click="exportToCsv"
-    >
-      Export
-    </q-btn>
   </div>
 </template>
 
@@ -231,6 +224,10 @@ watch(() => hotTable.value, (newVal) => {
       selectedData.value = newVal.hotInstance.getDataAtRow(r).slice(0, -1)
     })
   }
+})
+
+defineExpose({
+  exportToCsv
 })
 </script>
 
